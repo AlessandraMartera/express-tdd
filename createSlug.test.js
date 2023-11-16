@@ -2,6 +2,7 @@
 const createSlug = require("./createSlung");
 
 
+
 test("la funzione dovrebbe controllare se sto passando una stringa", () => {
     const result = createSlug("Questo è uno SLUnG");
     let typeResult = false;
@@ -30,3 +31,18 @@ test("la funzione dovrebbe incrementare di 1 lo slug quando esiste già", () => 
     
     expect(result).toBe("ciambellone-1");
 })
+
+test("la funzione dovrebbe lanciare un errore in caso di titolo non presente o formato errato", () => {
+    // const result = createSlug("ciambellone");
+    createSlug();
+    expect(createSlug).toThrowError("title not found");
+})
+
+/* 
+test("la funzione dovrebbe lanciare un errore se manca l’array dei post", () => {
+
+    createSlug();
+    expect(createSlug).toThrowError("array dei post non trovato");
+})
+
+*/

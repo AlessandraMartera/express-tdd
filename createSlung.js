@@ -2,6 +2,7 @@ const arrayDb = require("./db/db.json");
 
 module.exports = function (str) {
     
+    
     let resultToLawerCase = str.toLowerCase();
 
     let result = resultToLawerCase
@@ -28,5 +29,16 @@ module.exports = function (str) {
         // console.log(counterArrayResult);
     }
 
+    const arrayTitle = arrayDb.map( items => items.title)
+
+    arrayTitle.forEach((items, idx)  => {
+        if(!items || typeof items !== 'string'){
+            throw new Error(`title not found`)
+        }
+    })
+    
+    if(!arrayDb){
+        throw new Error("array dei post non trovato")
+    }
     return result
 }
