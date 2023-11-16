@@ -1,3 +1,5 @@
+const arrayDb = require("./db/db.json");
+
 module.exports = function (str) {
     
     let resultToLawerCase = str.toLowerCase();
@@ -15,7 +17,16 @@ module.exports = function (str) {
     // faccio tornare di nuovo una stringa
     .join('');
 
-    
-    // console.log(result.join());
+    // createSlug dovrebbe incrementare di 1 lo slug quando esiste già
+    const arraySlug = arrayDb.map( items => items.slug)
+ 
+    if(arraySlug.includes(result)){
+        const counterArrayResult = result.split("");
+        counterArrayResult.push("-");
+        counterArrayResult.push(1)
+        result = counterArrayResult.join("");
+        // console.log(counterArrayResult);
+    }
+
     return result
 }
