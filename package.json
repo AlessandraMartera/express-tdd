@@ -1,0 +1,15 @@
+{
+  "name": "express-tdd",
+  "version": "1.0.0",
+  "description": "Impariamo a ragionare in ottica TDD e a scrivere i nostri Unit Tests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll"
+  },
+  "author": "Alesssandra Martera",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
