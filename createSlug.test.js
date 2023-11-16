@@ -9,13 +9,18 @@ test("la funzione dovrebbe controllare se sto passando una stringa", () => {
     if(typeof result === "string"){
         typeResult = true
     }
-    
+
     expect(typeResult).toBe(true);
 })
 
-
-test("la funzione dovrebbe controllare che ciò che passo converta tutto il lowercase", () => {
+test("la funzione dovrebbe convertire tutto il lowercase", () => {
     const result = createSlug("Questo è un TESTO incReDibLE");
     
-    expect(result).toBe("questo è un testo incredible");
+    expect(result).toBe("questo-è-un-testo-incredible");
+})
+
+test("la funzione dovrebbe ritornare una stringa con gli spazi sostituiti da -", () => {
+    const result = createSlug("Questo è un TESTO incReDibLE");
+    
+    expect(result).toBe("questo-è-un-testo-incredible");
 })
