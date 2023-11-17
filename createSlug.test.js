@@ -1,6 +1,6 @@
 
 const createSlug = require("./createSlung");
-
+const {test, expect} = require("@jest/globals");
 
 
 test("la funzione dovrebbe controllare se sto passando una stringa", () => {
@@ -33,16 +33,16 @@ test("la funzione dovrebbe incrementare di 1 lo slug quando esiste già", () => 
 })
 
 test("la funzione dovrebbe lanciare un errore in caso di titolo non presente o formato errato", () => {
-    // const result = createSlug("ciambellone");
-    createSlug();
-    expect(createSlug).toThrowError("title not found");
+    const result = () => createSlug("ciambellone");
+    // createSlug("ciao");
+
+    expect(result).toThrowError('title not found');
 })
 
-/* 
+ 
 test("la funzione dovrebbe lanciare un errore se manca l’array dei post", () => {
 
-    createSlug();
-    expect(createSlug).toThrowError("array dei post non trovato");
-})
+    const result = () => createSlug("ciambellone");
 
-*/
+    expect(result).toThrowError("db dei post non trovato");
+})

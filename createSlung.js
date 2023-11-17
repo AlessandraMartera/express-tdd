@@ -2,6 +2,10 @@ const arrayDb = require("./db/db.json");
 
 module.exports = function (str) {
     
+    // if (str == null || str === undefined || !str) {
+    //     throw new Error('Il titolo non è presente o è in un formato errato');
+    // }
+    
     
     let resultToLawerCase = str.toLowerCase();
 
@@ -32,13 +36,14 @@ module.exports = function (str) {
     const arrayTitle = arrayDb.map( items => items.title)
 
     arrayTitle.forEach((items, idx)  => {
-        if(!items || typeof items !== 'string'){
+        if(items === "" || typeof items !== 'string' || !items){
             throw new Error(`title not found`)
         }
     })
     
     if(!arrayDb){
-        throw new Error("array dei post non trovato")
+        throw new Error("db dei post non trovato")
     }
+
     return result
 }
